@@ -1,6 +1,6 @@
 from google.generativeai import configure, embeddings
 
-configure(api_key="AIzaSyC7LlqtO9BPw7POjxQ_MBc2v2xGMcLKOs8")
+configure(api_key="Your_API_Key")
 
 resp = embeddings.embed_content(
     model="models/embedding-001",  # hoặc thử "models/gemini-embedding-001" nếu docs có
