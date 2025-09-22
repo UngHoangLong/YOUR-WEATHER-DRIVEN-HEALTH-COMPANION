@@ -1,0 +1,248 @@
+/* Dashboard.css */
+body, html {
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: url('/assets/image/image-background.jpg') center/cover no-repeat;
+}
+
+.dashboard-main {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  height: 100vh;
+  position: relative;
+}
+
+.dashboard-toolbar {
+  width: calc(100% - 60px); /* trừ chiều rộng cột chatbot, có thể chỉnh lại */
+  max-width: 1100px;
+  height: 30px;
+  background: #d0c4a8 !important;
+  border-radius: 24px;
+  box-shadow: 0 2px 12px #0001;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.toolbar-btn {
+  background: #cb9553;
+  color: #333;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #A2D99844;
+}
+
+.dashboard-3col {
+  display: flex;
+  flex: 1;
+  gap: 24px;
+  height: calc(100vh - 90px); /* thu hẹp chiều cao 2 cột trái và giữa */
+}
+
+.dashboard-chatbot {
+  flex: none;
+  width: 670px;
+  min-width: 380px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: url('/assets/image/image-background.jpg') center/cover no-repeat;
+  color: #333;
+  opacity: 0.95;
+  border-radius: 24px;
+  box-shadow: 0 2px 12px #0001;
+  overflow: hidden;
+}
+
+.chatbot-header {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.chatbot-body {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 12px;
+  background: none;
+  border-radius: 0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  min-height: 0;
+  max-height: calc(100vh - 120px);
+}
+
+.chat-message {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 16px;
+  font-size: 1rem;
+  max-width: 80%;
+  word-break: break-word;
+  margin-bottom: 4px;
+}
+
+.chat-message.user {
+  align-self: flex-end;
+  background: #A2D998;
+  color: #333;
+  box-shadow: 0 2px 8px #A2D99844;
+}
+
+.chat-message.bot {
+  align-self: flex-start;
+  background: #fff;
+  color: #4A7C59;
+  box-shadow: 0 2px 8px #0001;
+}
+
+.chatbot-input {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.chatbot-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
+
+.chatbot-input button {
+  background: #A2D998;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 8px #A2D99844;
+}
+
+.dashboard-days {
+  flex: 0.35;
+  min-width: 110px;
+  max-width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 8px;
+  background: #f7f3e9; /* màu be nhạt, không trong suốt */
+  border-radius: 24px;
+  box-shadow: 0 2px 12px #0001;
+  overflow: hidden;
+}
+
+.days-list {
+  width: 100%;
+  gap: 12px;
+}
+
+.day-card {
+  background: #fff;
+  border: 2px solid #A2D998;
+  border-radius: 16px;
+  padding: 18px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px #0001;
+}
+
+.day-card.active, .day-card:hover {
+  background: #A2D998;
+  color: #333;
+  box-shadow: 0 4px 16px #A2D99844;
+}
+
+.dashboard-weather {
+  flex: 1.1;
+  margin-right: 14px;
+  padding: 32px 16px;
+  background: #f5ecd7; /* màu be, không trong suốt */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  box-shadow: 0 2px 12px #0001;
+  overflow: hidden;
+  min-width: 320px;
+  max-width: 500px;
+}
+
+.weather-detail {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 2px 12px #0001;
+  padding: 40px 32px;
+  min-width: 320px;
+  color: #121111;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.weather-detail h2 {
+  margin-bottom: 12px;
+  color: #A2D998;
+}
+
+.primary-btn {
+  background: #A2D998;
+  color: #333;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 24px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 12px;
+  box-shadow: 0 2px 8px #A2D99844;
+}
+
+.weather-placeholder {
+  color: #70b7d1;
+  font-size: 1.2rem;
+  background: #fff;
+  border-radius: 24px;
+  padding: 40px 32px;
+  box-shadow: 0 2px 12px #0001;
+}
+
+.dashboard-days,
+.dashboard-weather {
+  border-radius: 24px 24px 32px 32px; /* Bo tròn phía dưới cho các cột */
+}

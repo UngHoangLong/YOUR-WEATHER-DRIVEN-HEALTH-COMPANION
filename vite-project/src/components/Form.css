@@ -1,0 +1,156 @@
+/* src/components/Form.css */
+.login-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* Màu be chủ đạo */
+  color: #333;
+  /* Màu chữ tối */
+}
+
+/* Phần bên trái */
+.visual-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 0 50px;
+    text-align: center;
+    color: #fff; /* Màu chữ trắng cho toàn bộ phần visual-section */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Thêm bóng đổ để nổi bật */
+}
+
+/* Phần bên trái */
+.visual-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 0 50px;
+    text-align: center;
+    height: 60%;
+}
+
+.slogan-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.slogan-text {
+    font-size: 1.25rem;
+    color: #a8a8a8;
+    margin-bottom: 30px;
+}
+
+
+/* Phần bên phải */
+.login-form-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.login-card {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    width: 350px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid #333;
+    height: 400px;
+}
+
+.logo-text {
+  font-family: 'Billabong', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 20px; /* Giảm khoảng cách từ 20px xuống 5px */
+  color: #333;
+  height: 70px;
+}
+
+.logo-text {
+  font-family: 'Billabong', sans-serif; /* Bạn có thể sử dụng font này để giống IG hơn */
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.001px;
+}
+
+
+.input-field.dark-input {
+  background-color: #f0f0f0;
+  /* Màu nền input nhạt */
+  border: 1px solid #ccc;
+  color: #000000;
+  padding: 12px;
+  height: 60%;
+  border-radius: 5px;
+}
+
+.form-button.primary-button {
+  background-color: #A2D998; /* Màu xanh lá cây nhạt */
+  color: #333;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 110%; /* Đặt chiều rộng bằng 100% để khớp với input */
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #666;
+  margin: 1px 0;
+  height: 0.5px;
+}
+
+.divider::before,
+
+.divider::after {
+  content: '____________'; /* Thẻ giả tạo ra đường gạch */
+  flex: 1; /* Cho phép đường gạch mở rộng để lấp đầy không gian */
+}
+
+/* Tạo khoảng cách nhỏ giữa chữ và đường gạch */
+.divider:not(:empty)::before {
+  margin-right: .25em;
+}
+
+.divider:not(:empty)::after {
+  margin-left: .25em;
+}
+
+.form-link {
+  color: #A2D998; /* Màu xanh lá cây nhạt */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.form-link:hover {
+  text-decoration: underline;
+}
+
+.message-text {
+  font-size: 0.9rem;
+  color: #c0392b; /* Màu đỏ cho lỗi */
+  text-align: center;
+  margin-top: 10px;
+}
+

@@ -1,0 +1,201 @@
+/* src/components/Setup.css */
+
+/* --- Cải thiện tổng thể trang --- */
+.setup-page-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: url('/assets/image/image-background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    overflow: hidden;
+}
+
+/* Lớp phủ mờ */
+.setup-page-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* --- Form nổi bật (đã điều chỉnh) --- */
+.setup-card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 800px;
+    padding: 3rem;
+    background-color: #fcf7e6;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+    max-height: 90vh;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Ẩn thanh cuộn trên Chrome, Safari và Opera */
+.setup-card::-webkit-scrollbar {
+    display: none;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    align-items: center;
+}
+
+/* --- Các input field --- */
+.input-field {
+    width: 100%;
+    height: 48px; 
+}
+
+/* --- Chữ tiêu đề và slogan --- */
+.logo-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4a4a4a;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.slogan-text {
+    font-size: 1.2rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* --- Nhóm lựa chọn bệnh --- */
+.disease-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.disease-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    background-color: #fff;
+    width: 130px;
+    position: relative; /* Đảm bảo relative để mô tả bên trong có thể căn chỉnh */
+}
+
+.disease-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.disease-item.selected {
+    border-color: #2ecc71;
+    background-color: #e8f5e9;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.2);
+}
+
+.disease-image {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.disease-name {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.disease-description {
+    font-size: 0.8rem;
+    color: #555;
+    margin-top: 0.5rem;
+    text-align: center;
+    padding: 0 5px;
+}
+
+.disease-item:hover .disease-description {
+    color: #333;
+}
+
+/* --- Nút "Không có bệnh nền" --- */
+.no-disease-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.no-disease-button:hover {
+    background-color: #e0e0e0;
+}
+
+.no-disease-button.selected {
+    background-color: #27ae60;
+    color: #fff;
+    border-color: #27ae60;
+}
+
+/* --- Các input field --- */
+.input-group {
+    width: 100%;
+    text-align: left;
+}
+
+.input-field {
+    width: 100%;
+}
+
+/* --- Hiệu ứng động --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+f
+.note-text {
+    font-size: 0.9rem;
+    color: #e74c3c;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    text-align: left;
+}
