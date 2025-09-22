@@ -1,10 +1,31 @@
-# YOUR-WEATHER-DRIVEN-HEALTH-COMPANION
-Các bước setup
+# 🌦️ YOUR-WEATHER-DRIVEN-HEALTH-COMPANION
 
-B1: Khởi tạo các container cơ sở dữ liệu Redis, ChromaDB và Postgresql trên server của bạn với docker-compose.yml như sau
+## 📋 Bảng Setup Hệ Thống
 
+| Bước | Thành phần / Mục tiêu                 | Lệnh / Thao tác                                                                                                  |
+|------|---------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| **1** | **Khởi tạo DB & Cache với Docker**    | Tạo file `docker-compose.yml` với Redis, PostgreSQL, ChromaDB. <br> Chạy: <br>```docker-compose up -d```         |
+| **2** | **Tạo môi trường ảo & cài thư viện** | ```bash<br>python -m venv venv<br>source venv/bin/activate   # hoặc venv\Scripts\activate (Windows)<br>pip install -r requirements.txt<br>``` |
+| **3.1** | **Worker thu thập dữ liệu**        | ```bash<br>python -m worker.worker<br>```                                                                        |
+| **3.2** | **Worker gợi ý bị động**           | ```bash<br>python -m passive_suggestion.suggest_worker<br>```                                                    |
+| **3.3** | **Worker xử lý Chatbot Agent**     | ```bash<br>python -m chatbot.ai_agent<br>```                                                                     |
+| **3.4** | **Scheduler (lập lịch tác vụ)**    | ```bash<br>python -m scheduler.scheduler<br>```                                                                  |
+| **3.5** | **Khởi chạy FastAPI Backend**      | ```bash<br>uvicorn backend.app:app --reload<br>```                                                               |
+| **4** | **Tạo tunnel bằng Ngrok**            | ```bash<br>ngrok http 8000<br>``` <br>👉 Copy URL được tạo để frontend kết nối đến backend.                       |
+| **5** | **Deploy frontend (Vite + React)**   | Deploy thư mục `vite-project` lên **Vercel**. <br>Thêm URL từ ngrok vào biến môi trường trên Vercel.              |
+
+---
+
+## ⚙️ Hướng dẫn chi tiết triển khai trên VPS
+
+### 1. Cài đặt Docker & Docker Compose
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install docker.io docker-compose -y
+sudo systemctl enable docker
+```
 docker-compose.yml
-
+```yaml
 version: '3.9'
 
 services:
@@ -39,35 +60,38 @@ services:
     volumes:
       - ./chroma_data:/chroma
     restart: always
+```
 
-B1: Tạo thư viện ảo và tải các thư viện từ requirements.txt về
+Khởi chạy các dịch vụ
+```bash 
+docker-compose up -d
+```
 
-pip install requirements.txt
+Kiểm tra container đang chạy
+```bash
+docker ps
+```
 
-B2: Ta sẽ vào thư mục chính và khởi chạy các worker như sau
+### 2. Khởi chạy Backend & Worker
+```bash
+# tạo môi trường ảo
+python -m venv venv
+source venv/bin/activate   # hoặc venv\Scripts\activate (Windows)
 
-Worker thu thập dữ liệu
+# cài thư viện
+pip install -r requirements.txt
+
+# khởi động worker và scheduler
 python -m worker.worker
-
-Worker tạo lời khuyên bị động
-python -m passive_suggestion.suggest_worker 
-
-Worker xử lý tác vụ chatbot
+python -m passive_suggestion.suggest_worker
 python -m chatbot.ai_agent
-
-Khởi tạo cơ chế lặp lịch
 python -m scheduler.scheduler
 
-Khởi tạo FastAPI
-python -m uvicorn backend.app:app --reload
+# chạy FastAPI
+uvicorn backend.app:app --reload
+```
 
-B4: Tạo tunnel kết nối đến internet
-Vì hiện tại server đang chạy local nên ta sẽ dùng ngrok để tạo tunnel dẫn kết nối từ internet đên port nội bộ ( giúp nhận request từ website)
+### 3. Kết nối Internet qua Ngrok (dành cho demo)
+```bash
 ngrok http 8000
-sau đó ta sẽ nhận được một link url, Website sẽ kết nối đến server ta thông qua link đó.
-
-B5: Deploy thư mục vite-project lên trên vercel, sau đó thêm link url đã lấy từ ngrok thêm vào biến môi trường.
-
-Chúc bạn thành công
-
-
+```
