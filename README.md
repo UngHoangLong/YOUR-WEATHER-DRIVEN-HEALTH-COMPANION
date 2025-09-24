@@ -44,7 +44,7 @@ services:
     container_name: postgres-server
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: kid14124869
+      POSTGRES_PASSWORD: "your_password"
       POSTGRES_DB: health_twin
     ports:
       - "5432:5432"
